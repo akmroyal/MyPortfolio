@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark-Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .navigation {
+            width: 9vw;
+            height: 100vh;
+            background-color: #222;
+            position: fixed;
+            z-index: 5;
+        }
+
+        .NavbarImage {
+            width: 100%;
+            height: 23vh;
+            overflow: hidden;
+            filter: grayscale(85%);
+            transition: all ease-in-out 0.2s;
+            cursor: pointer;
+        }
+
+        .NavbarImage:hover{
+            transform: scale(1.05);
+            filter: none;
+        }
+
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+            /* margin-top: 0.1vw; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-block: 1.8vw;
+        }
+
+        .navigation a:nth-child(2) {
+            background-color: #000;
+        }
+
+        .navigation a:nth-child(2):hover {
+            background-color: #c0bbbbd8;
+            color: #000;
+        }
+
+        .navigation a:hover {
+            background-color: #000;
+        }
+
+        .navigation a i {
+            font-size: 2.8vw;
+        }
+
+        /* Header Section------------- */
+        .main {
+            padding-inline-start: 9vw;
+        }
+
+        .Header {
+            position: relative;
+            width: 100%;
+            height: 210vh;
+            line-height: 4.9vw;
+            top: 6vw;
+            text-align: center;
+        }
+
+        .name-Header {
+            width: 100%;
+            height: auto;
+            font-size: 4rem;
+            color: #e0dede90;
+            cursor: pointer;
+            transition: all ease-in 0.1s;
+        }
+
+        .name-Header:hover {
+            color: #fff;
+        }
+
+        .text-effect {
+            color: #fff;
+            font-size: 3.4rem;
+        }
+
+        .me-Img {
+            filter: grayscale(80%);
+        }
+
+        /* ------About Section---- */
+
+        .about-section {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            /* background-color: rgb(3, 65, 119); */
+            padding-inline: 10vw;
+            text-align: center;
+        }
+
+        .about-Name,
+        .work-text,
+        .contact-head {
+            font-size: 2.2rem;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .about-section p {
+            margin-top: 3vw;
+            font-size: 1.1rem;
+            color: #757575;
+        }
+
+        .about-Skills {
+            font-size: 2.2rem;
+            margin-top: 5vw;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .white-level {
+            width: 100%;
+            height: 5.6vh;
+            background-color: #e9e7e7e5;
+            margin-top: 1.2vw;
+            transition: all ease-in-out 0.2s;
+        }
+
+        /* --------------- white skill container */
+        .white-cont {
+            width: 100%;
+            height: 20vh;
+            background-color: #dadada;
+            color: #000;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .about-content {
+            cursor: pointer;
+        }
+
+        .about-content span {
+            font-size: 1.4rem;
+        }
+
+        .resume-btn {
+            width: 15vw;
+            height: auto;
+            padding-block: 1.2vw;
+            background-color: #dadada;
+            border: none;
+            margin-top: 3vw;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .resume-btn:hover {
+            background: linear-gradient(to right, #4b6075 , #2980b9);
+        }
+        .fa-download{
+            font-size: 1.4rem;
+            transition: all ease-in 0.1s;
+        }
+        .resume-btn:hover .fa-download{
+            color: #0a0a0a;
+        }
+        .resume-btn a {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.2rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section,
+        .contact-section {
+            padding-inline: 9vw;
+            margin-top: 8vw;
+        }
+
+        /* --------------generated------------ */
+        .works-image {
+            display: flex;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            top: 4vw;
+            gap: 1vw;
+        }
+
+        .image-grid {
+            width: calc(100% - 50%);
+            position: relative;
+            height: 131vh;
+        }
+
+        .item {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease-in-out;
+            filter: grayscale(60%);
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+            filter: none;
+        }
+
+        /* ------------Contact Section-------- */
+        .contact-num {
+            margin-top: 3vw;
+        }
+
+        .contact-num p {
+            color: #757575;
+            margin-top: 1vw;
+        }
+
+        .contact-num p i {
+            font-size: 2.3rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        p {
+            color: #757575;
+        }
+
+        .detail-msg {
+            width: 100%;
+            height: auto;
+            position: relative;
+            margin-top: 2vw;
+        }
+
+        .input-detail {
+            width: 100%;
+            height: 8vh;
+            margin-bottom: 1.7vw;
+            padding-inline-start: 0.6vw;
+            font-size: 1.2rem;
+        }
+
+        .submit-btn {
+            padding: 1vw;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            transition: all ease-in-out 0.2s;
+        }
+
+        .submit-btn i {
+            font-size: 1.9rem;
+            transition: all ease-in-out 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #d8e5e8, #1c92d2);
+        }
+        .submit-btn:hover i{
+            color: #0088cc;
+        }
+
+        /* ---footer section----- */
+        .footer-section {
+            padding-inline: 9vw;
+            margin-top: 8vw;
+            margin-bottom: 1.5vw;
+        }
+
+        .footer-section div {
+            margin-bottom: 1.5vw;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            color: #dadada;
+            /* background-color: yellowgreen; */
+        }
+
+        .social-icon i {
+            font-size: 2rem;
+            margin-right: 1.5vw;
+            transition: all ease-in-out 0.1s;
+        }
+
+        .social-icon:nth-child(1):hover i {
+            color: #4267B2;
+        }
+
+        .social-icon:nth-child(2):hover i {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-icon:nth-child(3):hover i {
+            color: #FFFC00;
+        }
+
+        .social-icon:nth-child(4):hover i {
+            color: #E60023;
+        }
+
+        .social-icon:nth-child(5):hover i {
+            color: #1DA1F2;
+        }
+
+        .social-icon:nth-child(6):hover i {
+            color: #0072b1;
+        }
+
+        /* 
+
+ 
+
+#1DA1F2
+#0072b1
+ --> */
+        .footer-para {
+            margin-bottom: 1.4vw;
+        }
+
+        .footer-text {
+            margin-bottom: 1.4vw;
+            text-decoration: none;
+            color: #757575;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all ease-in-out 0.2s;
+        }
+
+        .footer-text:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navigation">
+        <!-- Avatar image in top left corner -->
+        <div class="NavbarImage"><img src="/image/Ashu_pic.png" alt="Image" style="width: 100%" /></div>
+        <a href="#" class="HomeLink">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>HOME</p>
+        </a>
+        <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>ABOUT</p>
+        </a>
+        <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-eye w3-xxlarge"></i>
+            <p>WORKS</p>
+        </a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-envelope w3-xxlarge"></i>
+            <p>CONTACT</p>
+        </a>
+    </nav>
+
+    <!-- Header -->
+
+    <div class="main" id="fstPage">
+
+        <header class="Header" id="home">
+            <h1 class="name-Header"><span class="text-effect">I'm</span> Ashu Maurya.</h1>
+            <p>Web Designer and Programmer.</p>
+            <img src="/image/ashu-PNG.png" alt="boy" class="me-Img" width="940" height="1108">
+        </header>
+
+
+        <!-- ///////////////  About Page //////////////////-->
+
+
+        <div class="about-section" id="about">
+            <h2 class="about-Name">Ashutosh Maurya</h2>
+            <hr style="width:320px" class="w3-opacity">
+            <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <h3 class="about-Skills">My Skills</h3>
+            <p class="skill-text">Programming</p>
+            <div class="white-level">
+                <div class="dark-level" style="height:5.6vh;width:93%;background-color: #757575;"></div>
+            </div>
+            <p class="skill-text">Frontend Development</p>
+            <div class="white-level">
+                <div class="" style="height:5.6vh;width:89%;background-color: #757575;"></div>
+            </div>
+            <p class="skill-text">C Lang</p>
+            <div class="white-level">
+                <div class="" style="height:5.6vh;width:95%;background-color: #757575;"></div>
+            </div>
+            <p class="skill-text">Problem Solving</p>
+            <div class="white-level">
+                <div class="" style="height:5.6vh;width:83%;background-color: #757575;"></div>
+            </div>
+            <p class="skill-text">Communication Skill</p>
+            <div class="white-level">
+                <div class="" style="height:5.6vh;width:95%;background-color: #757575;"></div>
+            </div><br>
+
+            <!-- --------- White Container -->
+            <div class="white-cont">
+                <div class="about-content">
+                    <span class="skills-effect">11+</span><br>
+                    Partners
+                </div>
+                <div class="about-content">
+                    <span class="skills-effect">55+</span><br>
+                    Projects Done
+                </div>
+                <div class="about-content">
+                    <span class="skills-effect">89+</span><br>
+                    Happy Clients
+                </div>
+                <div class="about-content">
+                    <span class="skills-effect">150+</span><br>
+                    Meetings
+                </div>
+            </div>
+
+            <button class="resume-btn">
+                <a href="#"><i class="fa fa-download"></i> Download Resume</a>
+            </button>
+            <!-- Ending of About Section -->
+        </div>
+
+
+        <!-- Starting Work Section -->
+
+        <!-- Portfolio Section -->
+        <div class="portfolio-section" id="photos">
+            <h2 class="work-text">My Works</h2>
+            <hr style="width:200px" class="w3-opacity">
+
+            <!-- Grid for photos -->
+            <div class="works-image" style="margin:0 -16px">
+                <div class="image-grid">
+                    <img src="/image/profileCard.png" alt="image" class="item">
+                    <img src="/image/dogcare.png" alt="image" class="item">
+                    <img src="/image/scumgolf.png" alt="image" class="item">
+                </div>
+
+                <div class="image-grid">
+                    <img src="/image/netflix.png" alt="image" class="item">
+                    <img src="/image/amazon.png" alt="image" class="item">
+                    <img src="/image/digitalClock.png" alt="image" class="item">
+                </div>
+                <!-- End photo grid  -->
+            </div>
+
+            <!-- End Portfolio Section -->
+        </div>
+
+
+        <!-- Contact Section -->
+        <div class="contact-section" id="contact">
+            <h2 class="contact-head">Contact Me</h2>
+            <hr style="width:210px" class="w3-opacity">
+
+            <div class="contact-num">
+                <p><i class="fa fa-map-marker fa-fw"></i> Greater Noida, India</p>
+                <p><i class="fa fa-phone fa-fw"></i> Phone: +91XXXXXXXXXX</p>
+                <p><i class="fa fa-envelope fa-fw"> </i> Email: mail@mail.com
+                </p>
+            </div><br><br><br><br>
+            <p>Let's get in touch. Send me a message:</p>
+
+            <form action="/action_page.php" target="_blank" class="detail-msg">
+                <p><input class="input-detail" type="text" placeholder="Name" required name="Name"></p>
+                <p><input class="input-detail" type="text" placeholder="Email" required name="Email"></p>
+                <p><input class="input-detail" type="text" placeholder="Subject" required name="Subject"></p>
+                <p><input class="input-detail" type="text" placeholder="Message" required name="Message"></p>
+                <p>
+                    <button class="submit-btn" type="submit">
+                        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+                    </button>
+                </p>
+            </form>
+            <!-- End Contact Section -->
+        </div>
+
+        <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+        <footer class="footer-section">
+            <div>
+                <a href="#" class="social-icon"><i class="fa fa-facebook-official "></i></a>
+                <a href="#" class="social-icon"><i class="fa fa-instagram "></i></a>
+                <a href="#" class="social-icon"><i class="fa fa-snapchat "></i></a>
+                <a href="#" class="social-icon"><i class="fa fa-pinterest-p "></i></a>
+                <a href="#" class="social-icon"><i class="fa fa-twitter "></i></a>
+                <a href="#" class="social-icon"><i class="fa fa-linkedin "></i></a>
+            </div>
+            <p class="footer-para">This website was made by Dev Ashutosh Maurya. Give me chance to build your own
+                website !!</p>
+            <a class="footer-text" href="#">Start now</a>
+            <!-- End footer -->
+        </footer>
+
+        <!-- END PAGE CONTENT -->
+    </div>
+
+</body>
+
+</html>
